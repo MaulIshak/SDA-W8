@@ -27,7 +27,7 @@ int main()
   while (true)
   {
     system("cls");
-    // Interactive mode with options
+    // Interaktif Mode
     printf("============== Operasi Kota ===============\n");
     printf("1. Insert Kota\n");
     printf("2. Delete Kota\n");
@@ -74,7 +74,7 @@ int main()
         printf("\n");
         if (temp != NULL) {
           printf("Warga Dihapus: %s\n", temp);
-          free(temp); // Free the allocated memory for the deleted Warga
+          free(temp);
         }
         break;
       case 6:

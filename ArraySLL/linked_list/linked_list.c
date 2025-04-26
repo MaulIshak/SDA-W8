@@ -295,7 +295,7 @@ void delete_before(LinkedList* list, infotype next_data, infotype* temp){
 void delete_val(LinkedList* list, infotype nm, infotype* temp){
   Node *curr, *prev;
   if(is_list_empty(*list)){
-    printf("List is empty\n");
+    printf("%s tidak ditemukan\n", nm);
     return;
   }else{
     curr = list->head;
@@ -305,7 +305,7 @@ void delete_val(LinkedList* list, infotype nm, infotype* temp){
       curr = curr->next;
     }
     if(curr == NULL){
-      printf("Node with nm %s not found\n", nm);
+      printf("%s tidak ditemukan\n", nm);
       return;
     }else{
       if(prev == NULL){

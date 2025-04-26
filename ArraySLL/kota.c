@@ -5,7 +5,7 @@
 #include "kota.h"
 #include "linked_list/linked_list.h"
 
-#define MAX_KOTA 10
+// #define MAX_KOTA 10
 
 void init_kt(Kota *kota){
   kota->kt = "";
@@ -53,6 +53,7 @@ void delete_kt(KotaArr *kotaArr,char* kt){
       return;
     }
   }
+  printf("Kota %s tidak ada di list\n", kt);
 }
 
 void print_kota(KotaArr kotaArr){
@@ -83,6 +84,7 @@ void insert_warga(KotaArr *kotaArr, char* kt, char* nm){
       return;
     }
   }
+  printf("Kota %s tidak ada di list\n", kt);
 }
 
 void delete_warga(KotaArr *kotaArr, char* kt, char* nm, char** temp){
@@ -93,6 +95,7 @@ void delete_warga(KotaArr *kotaArr, char* kt, char* nm, char** temp){
       return;
     }
   }
+  printf("Kota %s tidak ada di list\n", kt);
 }
 void print_warga(KotaArr kotaArr, char* kt){
   for (int i = 0; i < kotaArr.size; i++)
@@ -102,6 +105,7 @@ void print_warga(KotaArr kotaArr, char* kt){
       return;
     }
   }
+  printf("kota %s tidak ada di list.\n", kt);
 }
 
 void destroy_warga(KotaArr *kotaArr, char* kt){
