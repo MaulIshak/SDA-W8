@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "linked_list.h"
+#include <string.h>
 
 // Initialize the linked list
 void create_list(LinkedList* list){
@@ -85,7 +86,7 @@ void print_list(LinkedList list){
   }else{
     curr = list.head;
     while(curr->next != NULL){
-      printf("[%s]->", curr->nm);
+      printf("[%s] ", curr->nm);
       curr = curr->next;
     }
     printf("[%s]\n", curr->nm);
@@ -299,7 +300,7 @@ void delete_val(LinkedList* list, infotype nm, infotype* temp){
   }else{
     curr = list->head;
     prev = NULL;
-    while(curr != NULL && curr->nm != nm){
+    while(curr != NULL && strcmp(curr->nm, nm) != 0){
       prev = curr;
       curr = curr->next;
     }

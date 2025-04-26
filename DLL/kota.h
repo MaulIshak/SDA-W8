@@ -8,7 +8,7 @@
 
 typedef struct Kota{
   char* kt;
-  Kota* next;
+  struct Kota* next;
   Warga pWarga;
 } Kota;
 

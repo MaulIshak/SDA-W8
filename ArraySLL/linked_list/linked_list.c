@@ -300,7 +300,7 @@ void delete_val(LinkedList* list, infotype nm, infotype* temp){
   }else{
     curr = list->head;
     prev = NULL;
-    while(curr != NULL && curr->nm != nm){
+    while(curr != NULL && (strcmp(curr->nm, nm) != 0)){
       prev = curr;
       curr = curr->next;
     }

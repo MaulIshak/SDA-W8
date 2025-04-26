@@ -8,9 +8,18 @@
 void insert_kota(Kota** head, char* kt){
     Kota* new_kota = (Kota*)malloc(sizeof(Kota));
     new_kota->kt = strdup(kt);
-    new_kota->next = *head;
+    new_kota->next = NULL;
     new_kota->pWarga = NULL;
-    *head = new_kota;
+
+    if (*head == NULL) {
+        *head = new_kota;
+    } else {
+        Kota* current = *head;
+        while (current->next != NULL) {
+            current = current->next;
+        }
+        current->next = new_kota;
+    }
 }
 
 void delete_kota(Kota** head, char* kt, char** temp){
@@ -30,12 +39,16 @@ void delete_kota(Kota** head, char* kt, char** temp){
         prev = current;
         current = current->next;
     }
+    printf("Kota %s tidak ada di list.\n", kt);
 }
 
 void print_kota(Kota* head){
+    if(head == NULL){
+        printf("Tidak ada kota\n");
+    }
     while (head != NULL) {
-        printf("%s", head->kt);
-        print_warga(head->pWarga, head->kt);
+        printf("[%s] ", head->kt);
+        print_warga(head, head->kt);
         head = head->next;
     }
 }
@@ -44,7 +57,7 @@ void destroy_kota(Kota** head){
     Kota* current = *head;
     while (current != NULL) {
         Kota* next = current->next;
-        destroy_nm(current->pWarga);
+        destroy_nm(&(current->pWarga));
         free(current->kt);
         free(current);
         current = next;
@@ -61,6 +74,7 @@ void insert_warga(Kota** head, char* kt, char* nm){
         }
         current = current->next;
     }
+    printf("Kota %s tidak ada di list.\n", kt);
 }
 
 void delete_warga(Kota** head, char* kt, char* nm, char** temp){
@@ -72,6 +86,7 @@ void delete_warga(Kota** head, char* kt, char* nm, char** temp){
         }
         current = current->next;
     }
+    printf("Kota %s tidak ada di list.\n", kt);
 }
 
 void print_warga(Kota* head, char* kt){
@@ -89,7 +104,7 @@ void destroy_warga(Kota** head, char* kt){
     Kota* current = *head;
     while (current != NULL) {
         if (strcmp(current->kt, kt) == 0) {
-            destroy_nm(current->pWarga);
+            destroy_nm(&(current->pWarga));
             return;
         }
         current = current->next;

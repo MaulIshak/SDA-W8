@@ -5,7 +5,6 @@
 #include <string.h>
 #include "kota.h"
 
-#define MAX_KOTA 10
 
 int main()
 {
